@@ -1,8 +1,8 @@
-var numero = 9;
-var indice = 0;
+var numero: number = 9;
+var indice: number = 0;
 
 while (indice < 11) {
-    var tabla = numero*indice;
+    var tabla: number = numero*indice;
     indice ++;
     console.log (tabla);
 }
