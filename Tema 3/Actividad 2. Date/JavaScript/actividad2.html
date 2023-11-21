@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="actividad2.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="border: 1px solid black">
+        <!--Fecha de nacimiento-->
+        <fieldset style="width: 1px black">
+            <label for="cumpleaños" class="form-label">Inserta tu fecha de nacimiento</label><br>
+            <input type="date" name="cumpleaños" id="cumpleaños"><br><br>
+            <button class="btn btn-primary" onclick="cumpleaños()" type="submit">Enviar</button><br><br>
+        </fieldset>
+    </div>
+
+    <hr>
+    <!--Cambio formato fecha-->
+    <div>
+        <button class="btn btn-primary" type="submit" onclick="formatoFecha('corto')">Formato corto</button>
+        <button class="btn btn-primary" type="submit" onclick="formatoFecha('esp')">Formato largo español</button>
+        <button class="btn btn-primary" type="submit" onclick="formatoFecha('eng')">Formato largo inglés</button>
+    </div>
+
+    <hr>
+    <!--Cambio formato hora-->
+    <div>
+        <button class="btn btn-primary" type="submit" onclick="formatoHora(1)">Hora completa</button>
+        <button class="btn btn-primary" type="submit" onclick="formatoHora(2)">Hora AM/PM</button>
+    </div>
+</body>
+
+</html>
