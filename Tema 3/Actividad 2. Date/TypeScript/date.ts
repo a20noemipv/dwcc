@@ -1,12 +1,12 @@
 //Ejercicio 1.- Enseñar el número de días que quedan desde hoy (16/11/2023) hasta final de curso (25/06/2024)
 function finCurso () {
-    let hoy = new Date();
-    let futuro = new Date("2024-06-25");
-    let milisegundos = futuro - hoy;
-    let segundos = milisegundos/1000;
-    let minutos = segundos/60;
-    let horas = minutos/60;
-    let dias = horas/24;
+    let hoy : Date = new Date();
+    let futuro : Date = new Date("2024-06-25");
+    let milisegundos : number = futuro.getTime() - hoy.getTime();
+    let segundos : number = milisegundos/1000;
+    let minutos : number = segundos/60;
+    let horas : number = minutos/60;
+    let dias : number = horas/24;
     console.log(dias);
 }
 finCurso();
@@ -15,10 +15,11 @@ finCurso();
 en fin de semana desde este año (2023) hasta el año 2100.*/
 
 function cumpleaños () {
-    let actual = new Date();
-    let cumpleaños = new Date(document.getElementById("cumpleaños").value);
+    let actual : Date = new Date();
+    let elemento : any = document.getElementById("cumpleaños");
+    let cumpleaños : Date = new Date(elemento.value);
     for (let i = actual.getFullYear(); i <= 2100; i++) {
-        let fecha = new Date(i, cumpleaños.getMonth(), cumpleaños.getDay());
+        let fecha : Date = new Date(i, cumpleaños.getMonth(), cumpleaños.getDay());
         if(fecha.getDay() === 0 || fecha.getDay() === 6){
             console.log(fecha.getFullYear());
         }
@@ -26,8 +27,8 @@ function cumpleaños () {
 }
 
 //Ejercicio 3.- Enseña la fecha actual en diferentes formatos según el valor que meta el usuario por parámetro (usa un switch)
-let fecha = new Date("2016-02-17");
-const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+let fecha : Date = new Date("2016-02-17");
+const opciones : any = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
 function formatoCorto () {
     console.log(fecha.toLocaleDateString());
@@ -58,7 +59,7 @@ function formatoFecha (formatoFecha) {
 }
 
 //Ejercicio 4.- Enseña la hora actual en diferentes formatos según el valor que meta el usuario por parámetro (usa un switch)
-let hora = new Date();
+let hora : Date = new Date();
 function formatoHora (formatoHora) {
     switch (formatoHora) {
         case 1:
