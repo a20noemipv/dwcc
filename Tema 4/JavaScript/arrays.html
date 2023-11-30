@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="numPaises">
+        <h4>Número de los elementos del Array Países:</h4>
+    </div>
+
+    <hr>
+
+    <div id="mostrarPaises">
+        <h4>Todos los países listados son:</h4>
+    </div>
+
+    <hr>
+
+    <div id="inversaPaises">
+        <h4>Todos los países listados en sentido inverso:</h4>
+    </div>
+
+    <hr>
+
+    <div id="añadirInicio">
+        <h4>Añadido un país al inicio del Array:</h4>
+    </div>
+
+    <hr>
+
+    <div id="añadirFinal">
+        <h4>Añadido un país al final del Array:</h4>
+    </div>
+
+    <hr>
+
+    <div id="eliminarInicio">
+        <h4>Eliminado un país al inicio del Array:</h4>
+    </div>
+
+    <hr>
+
+    <div id="eliminarFinal">
+        <h4>Eliminado un país al final del Array:</h4>
+    </div>
+
+    <hr>
+
+    <div id="div-elemento">
+        <h4>Elige una posición del Array entre 0-5</h4>
+        <label for="elemento">Elige posición: </label>
+        <input type="number" name="elemento" id="elemento" min="0" max="5">
+        <button onclick="elemento()">Enviar</button>
+    </div>
+
+    <hr>
+
+    <div id="div-posicion">
+        <h4>Elige un país que esté dentro del Array</h4>
+        <label for="posicion">País: </label>
+        <input type="text" name="posicion" id="posicion">
+        <button onclick="posicion()">Enviar</button>
+    </div>
+
+    <hr>
+
+    <div id="div-positions">
+        <h4>Elige dos posiciones de 0-5 para enseñar los países del Array que hay entre ellas:</h4>
+        <label for="posicion1">Posicion 1: </label>
+        <input type="number" name="posicion1" id="posicion1" min="0" max="4">
+
+        <label for="posicion2">Posicion 2: </label>
+        <input type="number" name="posicion2" id="posicion2" min="0" max="5">
+        <button onclick="positions()">Enviar</button>
+    </div>
+</body>
+<script src="arrays.js"></script>
+</html>
