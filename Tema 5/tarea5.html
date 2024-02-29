@@ -66,9 +66,9 @@
             <legend>DWEC05 - Solución Tarea</legend>
             <form name="formulario" id="formulario" action="http://www.google.es" method="get" onsubmit="enviarForm();">
                 <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" />
+                <input type="text" name="nombre" id="nombre" onblur="nombreMayus()"/>
                 <label for="apellidos">Apellidos:</label>
-                <input type="text" name="apellidos" id="apellidos" />
+                <input type="text" name="apellidos" id="apellidos" onblur="apellidosMayus()"/>
                 <label for="edad">Edad:</label>
                 <input name="edad" type="text" id="edad" maxlength="3" />
                 <label for="nif">NIF:</label>
