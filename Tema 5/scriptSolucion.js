@@ -1,10 +1,5 @@
 
 function enviarForm() {
-    // let confirmacion = confirm('¿Deseas enviar el formulario?');
-    // if(!confirmacion) {
-    //     event.preventDefault();
-    // }
-    event.preventDefault();
     let nombre = document.getElementById("nombre").value;
     let apellidos = document.getElementById("apellidos").value;
     let edad = document.getElementById("edad").value;
@@ -18,7 +13,6 @@ function enviarForm() {
     let divIntentos = document.getElementById("intentos");
 
     divErrores.innerHTML = "";
-    //divIntentos.innerHTML = "";
     
     let nombreValido = validarNombre(nombre);
     if(!nombreValido){
@@ -73,6 +67,17 @@ function enviarForm() {
         let resultado = "El formato de hora no es correcto";
         divErrores.innerHTML += resultado;
         document.getElementById("hora").focus();
+    }
+    crearCookie();
+    let cookie = document.cookie;
+    let valor = parseInt(cookie.replace("contador=", ""));
+    divIntentos.innerHTML = "Intento de envíos del formulario: " + valor;
+
+    let confirmacion = confirm('¿Deseas enviar el formulario?');
+    /*Envío el formulario independientemente de que haya errores por como está escrito el enunciado. No especifica que los datos
+    tengan que estar bien. Si quisiera comprobarlo haría una condicional con todas las validaciones*/
+    if(!confirmacion) {
+        event.preventDefault();
     }
 }
 
@@ -142,3 +147,13 @@ function validarHora(hora){
     return hora.match(patronHora);
 }
 
+function crearCookie () {
+    let cookie = document.cookie;
+    if(!cookie){
+        document.cookie = "contador=1;";
+    }else {
+        let valor = parseInt(cookie.replace("contador=", ""));
+        valor ++;
+        document.cookie = "contador=" + valor;
+    }
+}
