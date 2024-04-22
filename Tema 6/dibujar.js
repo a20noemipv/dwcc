@@ -10,35 +10,37 @@ function load () {
     for (let i = 0; i < celdasColores.length; i++){
         let celdaColor = celdasColores[i];
         //celdaColor.classList.remove('seleccionado');
-        celdaColor.addEventListener('click', seleccionarCelda);
+        celdaColor.addEventListener('click', seleccionarColor);
     }
 
     let tabla = document.createElement("table");
     tabla.classList.add('tablerodibujo');
-// tabla.classList.remove('nombreClase');
+    // tabla.classList.remove('nombreClase');
     let caption = document.createElement("caption");
     let txtCaption = document.createTextNode("Haga CLICK en cualquier celda para activar/desactivar el Pincel");
     caption.appendChild(txtCaption);
     tabla.appendChild(caption);
 
 
-for(let fila = 0; fila < 30; fila++){
-    let tr = document.createElement("tr");
-    for (let col = 0; col < 30; col++){
-        let td = document.createElement("td");
-        tr.appendChild(td);
+    for(let fila = 0; fila < 30; fila++){
+        let tr = document.createElement("tr");
+        for (let col = 0; col < 30; col++){
+            let td = document.createElement("td");
+            td.addEventListener("click", clickCeldaTablero);
+
+            tr.appendChild(td);
+        }
+        tabla.appendChild(tr);
     }
-    tabla.appendChild(tr);
+
+    div.appendChild(tabla);
 }
 
-div.appendChild(tabla);
-}
-
-function seleccionarCelda (event) {
+function seleccionarColor (event) {
     let colorSeleccionado = event.target;
     let paleta = document.getElementById("paleta");
     let nodosPaleta = paleta.getElementsByTagName('tr');
-    console.log(nodosPaleta);
+    //console.log(nodosPaleta);
     let filaColores = nodosPaleta[0];
     let celdasColores = filaColores.getElementsByTagName('td');
     for (let i = 0; i < celdasColores.length; i++){
@@ -47,4 +49,38 @@ function seleccionarCelda (event) {
     }
 
     colorSeleccionado.classList.add('seleccionado');
+}
+
+function clickCeldaTablero (event) {
+    let celdaSeleccionada = event.target;
+    console.log(celdaSeleccionada);
+    pintarCelda(celdaSeleccionada);
+}
+
+function pintarCelda (celdaSeleccionada) {
+    let paleta = document.getElementById("paleta");
+    let nodosPaleta = paleta.getElementsByTagName("tr");
+    let filaColores = nodosPaleta[0]; 
+    let celdasColores = filaColores.getElementsByTagName("td");
+    for (let i = 0; i < celdasColores.length; i++){
+        let celdaColor = celdasColores[i];
+        if(celdaColor.classList.contains('seleccionado')){
+            if(celdaSeleccionada.classList.length > 0){
+                celdaSeleccionada.classList.remove(celdaSeleccionada.classList[0]);
+            }
+            if(celdaColor.classList.contains('color1')){
+                celdaSeleccionada.classList.add('color1');
+            }if (celdaColor.classList.contains('color2')) {
+                celdaSeleccionada.classList.add('color2');
+            }if (celdaColor.classList.contains('color3')) {
+                celdaSeleccionada.classList.add('color3');
+            }if (celdaColor.classList.contains('color4')) {
+                celdaSeleccionada.classList.add('color4');
+            }if (celdaColor.classList.contains('color5')) {
+                celdaSeleccionada.classList.add('color5');
+            }if (celdaColor.classList.contains('color6')) {
+                celdaSeleccionada.classList.add('color6');
+            }
+        }
+    }
 }
