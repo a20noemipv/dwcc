@@ -1,5 +1,7 @@
 window.addEventListener("load", load);
 
+let celdaClicada = false;
+
 function load () {
     let div = document.getElementById("zonadibujo");
     let paleta = document.getElementById("paleta");
@@ -27,9 +29,11 @@ function load () {
         for (let col = 0; col < 30; col++){
             let td = document.createElement("td");
             td.addEventListener("click", clickCeldaTablero);
+            td.addEventListener('mouseover', mouseOverCeldaTablero);
 
             tr.appendChild(td);
         }
+
         tabla.appendChild(tr);
     }
 
@@ -53,8 +57,26 @@ function seleccionarColor (event) {
 
 function clickCeldaTablero (event) {
     let celdaSeleccionada = event.target;
-    console.log(celdaSeleccionada);
+    let pincel = document.getElementById("pincel");
+    let txtTd = pincel.childNodes[0];
+    //console.log(celdaSeleccionada);
     pintarCelda(celdaSeleccionada);
+    if(celdaClicada) {
+        celdaClicada = false;
+        let newTxtTd = document.createTextNode("PINCEL DESACTIVADO");
+        pincel.replaceChild(newTxtTd, txtTd);
+    }else {
+        celdaClicada = true;
+        let newTxtTd = document.createTextNode("PINCEL ACTIVADO");
+        pincel.replaceChild(newTxtTd, txtTd);
+    }
+}
+
+function mouseOverCeldaTablero (event){
+    if(celdaClicada) {
+        let celdaSeleccionada = event.target;
+        pintarCelda(celdaSeleccionada);
+    }
 }
 
 function pintarCelda (celdaSeleccionada) {
